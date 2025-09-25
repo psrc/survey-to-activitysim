@@ -9,7 +9,7 @@ project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 from survey_to_activitysim.utils.survey_data import SurveyData
-import survey_to_activitysim.src.pre_process_survey 
+import survey_to_activitysim.steps.pre_process_persons 
 def add_run_args(parser, multiprocess=True):
     """
     Run command args
@@ -39,7 +39,7 @@ def run_pipeline(configs_dir):
     """
     config = yaml.safe_load(open(Path(f"{configs_dir}/config.yaml")))
     survey_data = SurveyData(config["survey_year"])
-    survey_data.persons = survey_to_activitysim.src.pre_process_survey.process_survey(survey_data.persons)
+    survey_data.persons = survey_to_activitysim.steps.pre_process_persons.process_survey(survey_data.persons)
     print('done')
 
 

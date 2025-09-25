@@ -100,7 +100,7 @@ def preprocessor(df):
 
     return df[person_schema.columns.keys()]
     
-def process_survey(df):
+def process_persons(df):
     """
     Process survey data through preprocessing pipeline
     
