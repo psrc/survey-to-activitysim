@@ -98,7 +98,7 @@ def preprocessor(df):
 
     df["ptype"] = df["ptype"].fillna(0).astype(int)
 
-    return df[person_schema.columns.keys()]
+    return df[person_schema.columns]
     
 def process_persons(df):
     """
