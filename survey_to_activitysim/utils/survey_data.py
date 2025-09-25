@@ -13,8 +13,8 @@ class SurveyData:
         return persons
 
     def get_households(self):
-        e_conn = psrcelmerpy.ElmerConn()
-        survey_year = 2023
+        e_conn = self.conn
+        survey_year = self.survey_year
         qry = f"""SELECT * FROM HHSurvey.v_households_labels WHERE survey_year = {survey_year}"""
         households = e_conn.get_query(qry)
         return households
