@@ -9,7 +9,9 @@ project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 from survey_to_activitysim.utils.survey_data import SurveyData
-import survey_to_activitysim.steps.pre_process_persons 
+import survey_to_activitysim.steps.preprocess_persons
+
+
 def add_run_args(parser, multiprocess=True):
     """
     Run command args
@@ -21,6 +23,8 @@ def add_run_args(parser, multiprocess=True):
         metavar="PATH",
         help="path to configs dir",
     )
+
+
 def run(args):
     """
     Implements the 'run' sub-command, which
@@ -29,9 +33,10 @@ def run(args):
     """
 
     pd.options.display.float_format = "{:.4f}".format
-    #mp.freeze_support()
+    # mp.freeze_support()
     run_pipeline(args.configs_dir)
     sys.exit()
+
 
 def run_pipeline(configs_dir):
     """
@@ -39,8 +44,12 @@ def run_pipeline(configs_dir):
     """
     config = yaml.safe_load(open(Path(f"{configs_dir}/config.yaml")))
     survey_data = SurveyData(config["survey_year"])
-    survey_data.persons = survey_to_activitysim.steps.pre_process_persons.process_survey(survey_data.persons)
-    print('done')
+    survey_data.persons = (
+        survey_to_activitysim.steps.preprocess_persons.process_persons(
+            survey_data.persons
+        )
+    )
+    print("done")
 
 
 if __name__ == "__main__":
