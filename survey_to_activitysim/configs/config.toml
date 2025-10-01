@@ -1,0 +1,30 @@
+survey_year = 2023
+output_dir = 'C:/Stefan/temp/survey_to_activitysim_output'
+
+################################################
+# Parcel Location (locate_parcels.py) Config
+################################################
+# Load Survey Data from Elmer or use CSV
+use_elmer = true
+
+# If not using Elmer, specify CSV directory of raw survey files 
+# Expected files: trip.csv, hh.csv, person.csv
+#survey_input_dir = 'R:/e2projects_two/2023_base_year/2017_2019_survey/elmer'
+
+# Set parcel file location
+parcel_file_dir = 'R:/e2projects_two/SoundCast/Inputs/rtp_2026_2050\landuse/2050/run_6/parcels_urbansim.txt'
+parcel_maz_file_dir = 'R:/e2projects_two/activitysim/conversion/geographic_crosswalks/2023/parcel_taz_block_lookup.csv'
+
+opurp_field = "origin_purpose"
+dpurp_field = "dest_purpose"
+
+# Spatial projection definitions
+LAT_LNG_CRS = 'epsg:4326'    # Survey data expected in lat/lng format
+WA_STATE_PLANE_CRS = 'epsg:2285'    # Projection of parcel and TAZ data; survey data is converted to this
+
+# list of columns in "workplace" field that represent main work location as home
+usual_workplace_home = ['At home (telecommute or self-employed with home office)']
+
+# distance in feet for max allowable distance between collected XY data and acceptable land use
+hh_max_dist = 2640    # half mile for distance near parcel with households
+school_max_dist = 5280     # mile for distance near parcel with students

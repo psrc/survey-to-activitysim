@@ -1,5 +1,5 @@
 import argparse
-import yaml
+import toml
 from pathlib import Path
 import pandas as pd
 import sys
@@ -8,6 +8,7 @@ import sys
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
+from survey_to_activitysim.steps import assign_zones
 from survey_to_activitysim.utils.survey_data import SurveyData
 import survey_to_activitysim.steps.preprocess_persons
 
@@ -42,8 +43,9 @@ def run_pipeline(configs_dir):
     """
     Run command
     """
-    config = yaml.safe_load(open(Path(f"{configs_dir}/config.yaml")))
+    config = toml.load(Path(f"{configs_dir}/config.toml"))
     survey_data = SurveyData(config["survey_year"])
+    assign_zones.locate_parcels(config, survey_data)
     survey_data.persons = (
         survey_to_activitysim.steps.preprocess_persons.process_persons(
             survey_data.persons
