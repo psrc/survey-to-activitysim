@@ -1,4 +1,6 @@
 import argparse
+
+
 class CLI:
     def __init__(self, version, description):
         self.version = version

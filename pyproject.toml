@@ -1,0 +1,28 @@
+[project]
+name = "survey-to-activitysim"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "argparse>=1.4.0",
+    "geopandas>=1.1.1",
+    "pandas>=2.3.3",
+    "pandera>=0.26.1",
+    "pathlib>=1.0.1",
+    "psrcelmerpy",
+    "scipy>=1.16.2",
+    "sqlalchemy>=2.0.44",
+    "toml>=0.10.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
+
+[tool.uv.sources]
+psrcelmerpy = { git = "https://github.com/psrc/psrcelmerpy.git" }
+
+[project.scripts]
+survey-to-activitysim = "survey_to_activitysim.cli.main:main"
