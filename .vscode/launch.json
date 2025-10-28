@@ -10,7 +10,7 @@
             "type": "debugpy",
             "request": "launch",
             //"program": "${file}",
-            "program": "C:/Stefan/survey-to-activitysim/survey_to_activitysim/cli/run.py",
+            "program": "C:/Joanne_PSRC/travel_models/survey-to-activitysim/survey_to_activitysim/cli/run.py",
             "console": "integratedTerminal",
             "args": ["-c", "survey_to_activitysim/configs"]
         }

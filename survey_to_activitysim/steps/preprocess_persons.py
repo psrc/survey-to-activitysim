@@ -1,5 +1,6 @@
-import pandera as pa
+import pandera.pandas as pa
 from survey_to_activitysim.utils.data_models import PersonSchema
+
 def convert_person_age(df):
     age_map = {
         "Under 5 years old": 2,
@@ -98,7 +99,7 @@ def preprocessor(df):
 
     df["ptype"] = df["ptype"].fillna(0).astype(int)
 
-    return df[person_schema.columns]
+    return df[list(person_schema.columns.keys())]
     
 def process_persons(df):
     """

@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import pandera as pa
+import pandera.pandas as pa
 from pandera.typing import DataFrame, Series
 
 class PersonSchema(pa.DataFrameModel):

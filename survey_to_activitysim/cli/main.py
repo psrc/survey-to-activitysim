@@ -1,12 +1,12 @@
 import sys
-from survey_to_activitysim.cli import CLI
-from survey_to_activitysim.cli import run
-#from network_builder.cli import build_transit_segments_parallel
 
 from survey_to_activitysim import __version__, __doc__
 
 
 def main():
+    
+    from survey_to_activitysim.cli import CLI, run
+
     run_pipeline = CLI(version=__version__, description=__doc__)
     run.add_subcommand(
         name="run",

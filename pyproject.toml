@@ -11,6 +11,7 @@ dependencies = [
     "pandera>=0.26.1",
     "pathlib>=1.0.1",
     "psrcelmerpy",
+    "pyyaml>=6.0.3",
     "scipy>=1.16.2",
     "sqlalchemy>=2.0.44",
     "toml>=0.10.2",
